@@ -25,7 +25,9 @@
             elif(is_spaces):
                 import torch
                 if(not torch.cuda.is_available()):
-                    cpu_warning_HTML=f'<p><strong>WARNING</strong>: This Space is currently running on CPU, but this Web UI may not run on CPU 🥶, you can upgrade for a GPU <a href="https://huggingface.co/spaces/{os.environ['SPACE_ID']}/settings" style="text-decoration: underline" target="_blank">in the Settings tab</a></p>'
+                    cpu_warning_HTML=f'''
+<p><strong>WARNING</strong>: This Space is currently running on CPU, but this Web UI may not run on CPU 🥶, you can upgrade for a GPU <a href="https://huggingface.co/spaces/{os.environ['SPACE_ID']}/settings" style="text-decoration: underline" target="_blank">in the Settings tab</a></p>
+'''
                     gr.HTML(f'''
 <div class="gr-prose" style="max-width: 80%">
 {cpu_warning_HTML}
@@ -33,7 +35,9 @@
 </div>
 ''')
                 else:
-                    gpu_tip_HTML=f'<p><strong>TIP</strong>: It is running on a GPU 🔥, you can <a href="https://huggingface.co/spaces/{os.environ['SPACE_ID']}/settings" style="text-decoration: underline" target="_blank">don't forget to remove the GPU attribution</a> once your are done playing with it</p> '
+                    gpu_tip_HTML=f'''
+<p><strong>TIP</strong>: It is running on a GPU 🔥, you can <a href="https://huggingface.co/spaces/{os.environ['SPACE_ID']}/settings" style="text-decoration: underline" target="_blank">don't forget to remove the GPU attribution</a> once your are done playing with it</p>
+'''
                     gr.HTML(f'''
 <div class="gr-prose" style="max-width: 80%">
 {gpu_tip_HTML}
